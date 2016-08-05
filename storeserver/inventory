@@ -1,0 +1,11 @@
+[ansible_playbook]
+ansible_target
+
+[storedb]
+storedb.drgeb.com
+
+[storeserver]
+storeserver.drgeb.com
+
+[mqserver]
+storemq.drgeb.com
