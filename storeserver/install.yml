@@ -1,5 +1,5 @@
 ---
-- hosts: ansible_playbook
+- hosts: database
   remote_user: ubuntu
   become: yes
   become_user: root
@@ -8,6 +8,15 @@
      - vars/secrets.yml
   roles:
      - role: drgeb.storedb
+
+- hosts: storeserver
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  vars_files:
+     - vars/storeserver.yml
+     - vars/secrets.yml
+  roles:
      - role: williamyeh.oracle-java
        java_provider: "oracle"
        java_version: 7

@@ -19,15 +19,17 @@ database:
   domainname: drgeb.com
   expose:
     - "1521"
+    - "22"
   ports:
     - "1521:1521"
 messaging:
-  image: mq
+  image: drgeb/mq
   container_name: store_mq_server
   hostname: storemq
   domainname: drgeb.com
   expose:
     - "1414"
+    - "22"
   ports:
     - "1414:1414"
   environment:

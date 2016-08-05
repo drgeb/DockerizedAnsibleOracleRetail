@@ -9,6 +9,7 @@ default_user: vagrant
 oracle_user: oracle
 oracle_install_group: oinstall
 
+hostname: storedb
 # extra_groups:
 #   - dba
 #     - oper

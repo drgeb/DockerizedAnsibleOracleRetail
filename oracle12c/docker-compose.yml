@@ -1,6 +1,8 @@
 target:
   image: drgeb/ansible_target:latest
   container_name: ansible_target
+  hostname: storedb
+  domainname: drgeb.com
   expose:
     - "22"
   privileged: true

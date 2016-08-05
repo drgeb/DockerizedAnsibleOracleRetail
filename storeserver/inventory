@@ -2,10 +2,10 @@
 storeserver
 
 [database]
-storedb.drgeb.com
+storedb
 
 [storeserver]
-storeserver.drgeb.com
+storeserver
 
 [messaging]
-storemq.drgeb.com
+storemq

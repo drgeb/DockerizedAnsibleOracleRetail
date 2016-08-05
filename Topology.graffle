@@ -175,7 +175,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{196.2808894425682, 227.18513809221503}, {50, 14}}</string>
+			<string>{{199.7808894425682, 227.18513809221503}, {43, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -218,7 +218,7 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs24 \cf0 &lt;uses&gt;}</string>
+\f0\fs24 \cf0 &lt;ssh&gt;}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -266,7 +266,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{350.71911134156016, 227.18513898769885}, {50, 14}}</string>
+			<string>{{354.21911134156016, 227.18513898769885}, {43, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -309,7 +309,7 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs24 \cf0 &lt;uses&gt;}</string>
+\f0\fs24 \cf0 &lt;ssh&gt;}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -381,7 +381,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{273.49998100269983, 228.50000674999853}, {50, 14}}</string>
+			<string>{{276.99998100269983, 227.50000781265717}, {43, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -395,7 +395,7 @@
 				<key>ID</key>
 				<integer>14</integer>
 				<key>Position</key>
-				<real>0.5</real>
+				<real>0.49193549156188965</real>
 				<key>RotationType</key>
 				<integer>0</integer>
 			</dict>
@@ -424,7 +424,7 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs24 \cf0 &lt;uses&gt;}</string>
+\f0\fs24 \cf0 &lt;ssh&gt;}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -687,7 +687,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{54.500003814697266, 272.37026214599609}, {150, 151.62973022460938}}</string>
+			<string>{{54.500003814697266, 275.00002288818359}, {150, 151.62973022460938}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -714,10 +714,78 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\b\fs24 \cf0 database}</string>
+\f0\b\fs24 \cf0 database-vm}</string>
 			</dict>
 			<key>TextPlacement</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{227.7500057220459, 275.00002288818359}, {150, 151.62973022460938}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>37</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>GapRatio</key>
+					<real>0.5</real>
+					<key>Width</key>
+					<real>4</real>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>0</integer>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
+
+\f0\b\fs24 \cf0 storeserver-vm}</string>
+			</dict>
+			<key>TextPlacement</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{392.50000190734863, 275.00002288818359}, {150, 151.62973022460938}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>38</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>GapRatio</key>
+					<real>0.5</real>
+					<key>Width</key>
+					<real>4</real>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>0</integer>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
+
+\f0\b\fs24 \cf0 messaging-vm}</string>
+			</dict>
+			<key>TextPlacement</key>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>GridInfo</key>
@@ -767,7 +835,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2016-08-05 13:35:46 +0000</string>
+	<string>2016-08-05 16:28:52 +0000</string>
 	<key>Modifier</key>
 	<string>Gerald Bennett</string>
 	<key>NotesVisible</key>
@@ -862,7 +930,7 @@
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{0, 0}, {562, 707}}</string>
+		<string>{{3, 0}, {562, 707}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
