@@ -1,6 +1,6 @@
 storeserver:
   image: drgeb/ansible_target:latest
-  container_name: ansible_target
+  container_name: storeserver
   hostname: storeserver
   domainname: drgeb.com
   expose:
