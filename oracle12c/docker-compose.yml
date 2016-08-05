@@ -1,0 +1,18 @@
+target:
+  image: drgeb/ansible_target:latest
+  container_name: ansible_target
+  expose:
+    - "22"
+  privileged: true
+
+test:
+  image: drgeb/ansible_playbook
+  links:
+    - target
+  volumes:
+    - ./files/ssh/ansible_vault:/root/.ssh/ansible_vault
+    - ./files/ssh/id_rsa:/root/.ssh/id_rsa
+    - ./files/ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
+    - ~/.ansible/roles:/ansible/playbooks/roles
+    - .:/ansible/playbooks
+    

@@ -1,11 +1,11 @@
 [ansible_playbook]
-ansible_target
+storeserver
 
-[storedb]
+[database]
 storedb.drgeb.com
 
 [storeserver]
 storeserver.drgeb.com
 
-[mqserver]
+[messaging]
 storemq.drgeb.com

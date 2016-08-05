@@ -1,0 +1,10 @@
+---
+- hosts: test
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  vars_files:
+     - vars/oracle12c.yml
+     - vars/secrets.yml
+  roles:
+     - role: drgeb.oracle-install

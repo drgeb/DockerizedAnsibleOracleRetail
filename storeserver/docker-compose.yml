@@ -1,4 +1,4 @@
-target:
+storeserver:
   image: drgeb/ansible_target:latest
   container_name: ansible_target
   hostname: storeserver
@@ -6,12 +6,13 @@ target:
   expose:
     - "22"
   links:
-    - storedb
+    - database
+    - messaging
   volumes:
     - /Volumes/lucky/Users/drgeb/Programming/sandbox/oretail/upload:/srv/download
     - ./data:/u02
   privileged: true
-storedb:
+database:
   image: drgeb/oracle12c
   container_name: store_database_server
   hostname: storedb
@@ -20,19 +21,24 @@ storedb:
     - "1521"
   ports:
     - "1521:1521"
-mqserver:
+messaging:
   image: mq
   container_name: store_mq_server
   hostname: storemq
   domainname: drgeb.com
   expose:
-    - "1521"
+    - "1414"
+  ports:
+    - "1414:1414"
+  environment:
+    - LICENSE=accept
+    - MQ_QMGR_NAME=QM1
 ansible_playbook:
   image: drgeb/ansible_playbook
   links:
-    - target
-    - storedb
-    - mqserver
+    - storeserver
+    - database
+    - messaging
   volumes:
     - ./files/ssh/ansible_vault:/root/.ssh/ansible_vault
     - ./files/ssh/id_rsa:/root/.ssh/id_rsa

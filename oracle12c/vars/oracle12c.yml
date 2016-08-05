@@ -1,0 +1,26 @@
+---
+oracle_user: oracle
+oracle_group: oinstall
+oracle_install_group: oinstall
+# oracle_home:/home/oracle
+
+extra_groups:
+  - dba
+  - oper
+  - wheel
+
+oracle_base: /u01/app
+
+default_user: vagrant
+
+# Oracle user limits
+# https://docs.oracle.com/database/121/LADBI/usr_grps.htm#LADBI7674
+soft_no_file: 4096
+hard_no_file: 65536
+soft_nproc: 2047
+hard_nproc: 16384
+soft_stack: 10240
+hard_stack: 32768
+# mem lock 90% of RAM
+soft_memlock: 1887437
+hard_memlock: 1887437
