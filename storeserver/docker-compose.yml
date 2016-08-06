@@ -1,50 +1,48 @@
-storeserver:
-  image: drgeb/ansible_target:latest
-  container_name: storeserver
-  hostname: storeserver
-  domainname: drgeb.com
-  expose:
-    - "22"
-  links:
-    - database
-    - messaging
-  volumes:
-    - /Volumes/lucky/Users/drgeb/Programming/sandbox/oretail/upload:/srv/download
-    - ./data:/u02
-  privileged: true
-database:
-  image: drgeb/oracle12c
-  container_name: store_database_server
-  hostname: storedb
-  domainname: drgeb.com
-  expose:
-    - "1521"
-    - "22"
-  ports:
-    - "1521:1521"
-messaging:
-  image: drgeb/mq
-  container_name: store_mq_server
-  hostname: storemq
-  domainname: drgeb.com
-  expose:
-    - "1414"
-    - "22"
-  ports:
-    - "1414:1414"
-  environment:
-    - LICENSE=accept
-    - MQ_QMGR_NAME=QM1
-ansible_playbook:
-  image: drgeb/ansible_playbook
-  links:
-    - storeserver
-    - database
-    - messaging
-  volumes:
-    - ./files/ssh/ansible_vault:/root/.ssh/ansible_vault
-    - ./files/ssh/id_rsa:/root/.ssh/id_rsa
-    - ./files/ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
-    - ~/.ansible/roles:/ansible/playbooks/roles
-    - ~/.ansible/library:/ansible/library
-    - .:/ansible/playbooks    
+version: '2'
+services:
+  storeserver:
+    image: drgeb/ansible_target:latest
+    container_name: storeserver
+    hostname: store_oraclepos_server
+    domainname: drgeb.com
+    expose:
+      - "22"
+    links:
+      - database:storedb
+    volumes:
+      - /Volumes/lucky/Users/drgeb/Programming/sandbox/oretail/upload:/srv/download
+    privileged: true
+  database:
+    image: drgeb/oracle12c
+    container_name: store_database_server
+    hostname: storedb
+    domainname: drgeb.com
+    expose:
+      - "1520"
+      - "22"
+    ports:
+      - "1520"
+  messaging:
+    image: drgeb/mq
+    container_name: store_mq_server
+    hostname: storemq
+    domainname: drgeb.com
+    expose:
+      - "1414"
+      - "22"
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
+  ansible_playbook:
+    image: drgeb/ansible_playbook
+    links:
+      - storeserver
+      - database:storedb
+      - messaging:storemq
+    volumes:
+      - ./files/ssh/ansible_vault:/root/.ssh/ansible_vault
+      - ./files/ssh/id_rsa:/root/.ssh/id_rsa
+      - ./files/ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
+      - ~/.ansible/roles:/ansible/playbooks/roles
+      - ~/.ansible/library:/ansible/library
+      - .:/ansible/playbooks

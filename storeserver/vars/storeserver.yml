@@ -3,6 +3,7 @@
 soffice_user: sofficer
 soffice_install_group: orssinstall
 soffice_base: /home/sofficer/storesever
+soffice_hostname: storedb
 
 default_user: vagrant
 
