@@ -1,0 +1,4 @@
+*.bak
+secrets.yml
+**/ssh/*
+**/files/*

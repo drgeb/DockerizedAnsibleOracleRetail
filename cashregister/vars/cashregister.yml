@@ -17,3 +17,6 @@ default_user: vagrant
 soffice_hostname: storedb
 
 hostname: cashregister
+
+poffice_installed_dir: '/usr/OracleRetailStore/Client'
+download_dir: /srv/download

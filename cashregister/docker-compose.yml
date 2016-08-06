@@ -34,7 +34,7 @@ services:
       - "1521"
       - "22"
     ports:
-      - "1521"
+      - "1521:1521"
     environment:
       - CONTAINER=docker
     privileged: true
