@@ -1,48 +1,83 @@
-storeserver:
-  image: drgeb/ansible_target:latest
-  container_name: ansible_target
-  hostname: storeserver
-  domainname: drgeb.com
-  expose:
-    - "22"
-  links:
-    - database
-    - messaging
-  volumes:
-    - /Volumes/lucky/Users/drgeb/Programming/sandbox/oretail/upload:/srv/download
-    - ./data:/u02
-  privileged: true
-database:
-  image: drgeb/oracle12c
-  container_name: store_database_server
-  hostname: storedb
-  domainname: drgeb.com
-  expose:
-    - "1521"
-  ports:
-    - "1521:1521"
-messaging:
-  image: mq
-  container_name: store_mq_server
-  hostname: storemq
-  domainname: drgeb.com
-  expose:
-    - "1414"
-  ports:
-    - "1414:1414"
-  environment:
-    - LICENSE=accept
-    - MQ_QMGR_NAME=QM1
-ansible_playbook:
-  image: drgeb/ansible_playbook
-  links:
-    - storeserver
-    - database
-    - messaging
-  volumes:
-    - ./files/ssh/ansible_vault:/root/.ssh/ansible_vault
-    - ./files/ssh/id_rsa:/root/.ssh/id_rsa
-    - ./files/ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
-    - ~/.ansible/roles:/ansible/playbooks/roles
-    - ~/.ansible/library:/ansible/library
-    - .:/ansible/playbooks    
+version: '2'
+services:  
+  backoffice:
+    image: 1221-domain
+    container_name: backoffice-domain
+    hostname: backoffice
+    domainname: drgeb.com
+    links:
+      - wlsadmin:wlsadmin
+      - database
+      - messaging
+    command:
+      - createServer.sh
+  wlsadmin:
+    image: 1221-domain
+    container_name: wlsadmin
+    hostname: wlsadmin
+    domainname: drgeb.com
+    expose:
+      - "8001"
+    ports:
+      - "8001:8001"
+  cashregister:
+    image: drgeb/cashregister:latest
+    container_name: store_oraclepos_cashregister
+    hostname: cashregister
+    domainname: drgeb.com
+    links:
+      - storeserver:oretail
+      - messaging
+  storeserver:
+    image: drgeb/storeserver:latest
+    container_name: storeserver
+    hostname: storeserver
+    domainname: drgeb.com
+    expose:
+      - "22"
+    links:
+      - database
+      - messaging
+    volumes:
+      - /Volumes/lucky/Users/drgeb/Programming/sandbox/oretail/upload:/srv/download
+      - ./data:/u02
+    privileged: true
+  database:
+    image: drgeb/oracle12c
+    container_name: store_database_server
+    hostname: storedb
+    domainname: drgeb.com
+    expose:
+      - "1521"
+    ports:
+      - "1521:1521"
+  messaging:
+    image: drgeb/mq
+    container_name: store_mq_server
+    hostname: storemq
+    domainname: drgeb.com
+    expose:
+      - "1414"
+    ports:
+      - "1414:1414"
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
+  ansible_playbook:
+    image: drgeb/ansible_playbook
+    container_name: ansible_playbook
+    hostname: playbook
+    domainname: drgeb.com    
+    links:
+      - storeserver
+      - database
+      - messaging
+      - wlsadmin
+      - backoffice      
+    volumes:
+      - ./files/ssh/ansible_vault:/root/.ssh/ansible_vault
+      - ./files/ssh/id_rsa:/root/.ssh/id_rsa
+      - ./files/ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
+      - ~/.ansible/roles:/ansible/playbooks/roles
+      - ~/.ansible/library:/ansible/library
+      - .:/ansible/playbooks    

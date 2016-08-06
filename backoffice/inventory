@@ -1,5 +1,5 @@
 [ansible_playbook]
-storeserver
+backoffice_ansible_playbook_run_1
 
 [database]
 storedb.drgeb.com
@@ -9,3 +9,9 @@ storeserver.drgeb.com
 
 [messaging]
 storemq.drgeb.com
+
+[wlsadmin]
+wlsadmin.drgeb.com
+
+[backoffice]
+backoffice.drgeb.com

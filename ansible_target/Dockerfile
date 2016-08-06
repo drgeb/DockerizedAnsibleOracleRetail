@@ -9,7 +9,7 @@ RUN  yum install -y binutils.x86_64 compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86
 
 RUN yum install -y wget
 RUN wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-7.noarch.rpm
-RUN rpm -ivh epel-release-7-7.noarch.rpm
+RUN rpm -ivh epel-release-7-7.noarch.rpm && rm -f epel-release-7-7.noarch.rpm
 
 # Install up-to-date epel rpm repository
 #RUN yum -y install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm

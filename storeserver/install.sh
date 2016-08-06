@@ -3,7 +3,6 @@ export TEMP_BUILD_IMAGE_NAME=storeserver
 export BUILD_IMAGE_NAME=${PWD##*/}
 
 docker-compose run --rm ansible_playbook install.yml -i inventory
-docker stop ${TEMP_BUILD_IMAGE_NAME} 
+docker-compose stop
 docker commit ${TEMP_BUILD_IMAGE_NAME} drgeb/${BUILD_IMAGE_NAME}:latest
-docker rm ${TEMP_BUILD_IMAGE_NAME}
-
+docker-compose rm -f
