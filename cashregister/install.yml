@@ -1,0 +1,15 @@
+---
+- hosts: cashregister
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  vars_files:
+     - vars/cashregister.yml
+     - vars/secrets.yml
+  roles:
+     - role: williamyeh.oracle-java
+       java_provider: "oracle"
+       java_version: 7
+       java_subversion: 80
+       java_download_from_oracle: false  
+     - role: drgeb.cashregister

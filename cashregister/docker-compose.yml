@@ -1,16 +1,27 @@
 version: '2'
 services:
-  storeserver:
+  cashregister:
     image: drgeb/ansible_target:latest
-    container_name: storeserver
-    hostname: store_oraclepos_server
+    container_name: store_oraclepos_cashregister
+    hostname: cashregister
     domainname: drgeb.com
     expose:
       - "22"
     links:
-      - database:storedb
+      - storeserver:oretail
     volumes:
       - /Volumes/lucky/Users/drgeb/Programming/sandbox/oretail/upload:/srv/download
+  storeserver:
+    image: drgeb/storeserver:latest
+    container_name: store_oraclepos_server
+    hostname: storeserver
+    domainname: drgeb.com
+    expose:
+      - "22"
+      - "1300"
+    links:
+      - database:storedb
+      - messaging:storemq
     privileged: true
   database:
     image: drgeb/oracle12c
@@ -20,10 +31,10 @@ services:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     expose:
-      - "1520"
+      - "1521"
       - "22"
     ports:
-      - "1520"
+      - "1521"
     environment:
       - CONTAINER=docker
     privileged: true
@@ -43,6 +54,7 @@ services:
   ansible_playbook:
     image: drgeb/ansible_playbook
     links:
+      - cashregister
       - storeserver
       - database:storedb
       - messaging:storemq

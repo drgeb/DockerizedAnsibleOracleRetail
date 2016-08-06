@@ -35,6 +35,7 @@ RUN su - ubuntu -c "mkdir ~/.ssh"
 ADD files/ssh/authorized_keys /home/ubuntu/.ssh/authorized_keys
 RUN chmod 0700 /home/ubuntu/.ssh
 
+
 # Various options to make SSH access easier when testing Ansible playbooks
 RUN \
   sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && \

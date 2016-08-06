@@ -1,0 +1,14 @@
+[ansible_playbook]
+cashregister
+
+[database]
+storedb
+
+[storeserver]
+storeserver
+
+[messaging]
+storemq
+
+[cashregister]
+cashregister

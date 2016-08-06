@@ -1,0 +1,16 @@
+---
+# STORESERVER
+soffice_user: sofficer
+soffice_install_group: orssinstall
+soffice_base: /home/sofficer/storesever
+
+default_user: vagrant
+
+oracle_user: oracle
+oracle_install_group: oinstall
+
+# extra_groups:
+#   - dba
+#     - oper
+#       - wheel
+#

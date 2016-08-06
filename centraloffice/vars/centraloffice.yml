@@ -1,0 +1,7 @@
+---
+# CENTRALOFFICE
+coffice_user: cofficer
+coffice_install_group: orcoinstall
+coffice_base: /home/cofficer/centraloffice
+
+default_user: vagrant

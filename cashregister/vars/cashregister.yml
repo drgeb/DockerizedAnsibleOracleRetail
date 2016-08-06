@@ -1,0 +1,19 @@
+oracle_user: oracle
+oracle_install_group: oinstall
+# oracle_home:/home/oracle
+
+extra_groups: []
+
+oracle_base: /u01/app
+
+# CASHREGISTER
+poffice_user: pofficer
+poffice_install_group: orssinstall
+poffice_base: /home/pofficer/cashregister
+poffice_hostname: cashregister
+
+default_user: vagrant
+
+soffice_hostname: storedb
+
+hostname: cashregister
